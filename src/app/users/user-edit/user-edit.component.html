@@ -1,32 +1,22 @@
 <h1>Add/Edit User</h1>
 <mat-divider></mat-divider>
-<form method="post">
-    <p>
-        <mat-form-field appearance="legacy">
-            <mat-label>Firstname</mat-label>
-            <input matInput placeholder="e.g: Jhon">
+<form method="post" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+        <mat-form-field>
+            <input matInput placeholder="Firstname" formControlName="firstname">
         </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="standard">
-            <mat-label>Lastname</mat-label>
-            <input matInput placeholder="e.g: Doe">
+        <mat-form-field>
+            <input matInput placeholder="Lastname" formControlName="lastname">
         </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="e.g: jhon@company.com">
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email">
         </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Age</mat-label>
-            <input matInput placeholder="e.g: 200">
+        <mat-form-field>
+            <input matInput placeholder="Age" formControlName="age">
         </mat-form-field>
-    </p> 
-    <p>
-        <button mat-raised-button > SAVE </button>
-        <button mat-raised-button> CANCEL </button>
-    </p>
+        <p>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid"> SAVE </button>
+            <button mat-raised-button color="warn"> CANCEL </button>
+        </p>
+    </div>
 </form>

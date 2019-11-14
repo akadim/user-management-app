@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from './users.service';
 import { User } from './user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -12,7 +13,7 @@ export class UsersComponent implements OnInit {
   columns = [];
   users: User[];
 
-  constructor(private userService: UsersService) { }
+  constructor(private userService: UsersService, private router: Router) { }
 
   ngOnInit() {
 
@@ -25,7 +26,11 @@ export class UsersComponent implements OnInit {
   }
 
   onEdit(id: number) {
-      
+    if(id) {
+      this.router.navigate(['/user/'+id]);
+    } else {
+      this.router.navigate(['/user']);
+    }
   }
 
 }

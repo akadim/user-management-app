@@ -1,6 +1,6 @@
 <h1>Users</h1>
 <mat-divider></mat-divider>
-<button mat-raised-button> Add User </button>
+<button mat-raised-button (click)="onEdit(undefined)" color="primary"> Add User </button>
 <table mat-table [dataSource]="users" class="mat-elevation-z8">
 
     <!-- Number column -->
